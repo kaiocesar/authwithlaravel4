@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -9,36 +8,34 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the Closure to execute when that URI is requested.
 |
+| @link http://laravelbook.com/laravel-user-authentication/
+| @link http://four.laravel.com/docs/security#authenticating-users
+|
 */
 
-/*
-  $user = new User;
-  $user->email = "user";
-  $user->password = Hash::make('senha');
-  $user->save();
-
-  exit;
-  */
-
+/**
+ * Group routes authentication
+ */
 Route::group(array('before'=>'auth'), function(){
 
   Route::get('/', ['as'=>'home', function(){ return View::make('home'); }]);
 
   Route::get('/users', 'UserController@index');
+
+  Route::get('/posts', 'PostController@index');
   
 });
 
 
 
-
+/**
+ * Rotes authentication
+ */
 Route::get('/login', array('as' => 'login', function() {
- 
   if (Auth::check()):
     return Redirect::route('dash')->with("flash_notice", "You are successfully logged in.");
   endif;
-
   return View::make('login');
-
 }))->before('guest');
 
 
@@ -47,32 +44,17 @@ Route::post('login', array('before'=>'csrf', function() {
     'username' => Input::get('username'),
     'password' => Input::get('password')
   );
-
   if (Auth::attempt($user)) {
      return Redirect::route('home')->with('flash_notice', 'You are successfully logged in.');
   }
-
   return Redirect::route('login')->with('flash_error','you username/password combination was incorrect')->withInput();
-
 }));
 
 
 Route::get('/logout', array('as'=>'logout', function(){
    Auth::logout();
-
    return Redirect::route('home')->with('flash_notice', 'you are sucessfully logged out.');
 }))->before('auth');
 
 
-/*
 
-Route::get('/profile', array('as'=>'profile', function(){ 
-   return View::make('profile');
-}))->before('auth');
-*/ 
-
-
-
-
-// http://laravelbook.com/laravel-user-authentication/
-//http://four.laravel.com/docs/security#authenticating-users

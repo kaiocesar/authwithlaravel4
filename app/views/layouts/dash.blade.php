@@ -42,9 +42,9 @@
         </div>
         <div class="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">users</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/users">Users</a></li>
+            <li><a href="/posts">Post</a></li>
           </ul>
         </div><!--/.nav-collapse -->
         
@@ -65,6 +65,13 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/assets/js/jquery-1.10.2.min.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        $('.action-icons a').tooltip(delay: { show: 400, hide: 100 });
+      });
+    </script>
+
 
   </body>
 </html>
