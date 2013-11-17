@@ -11,7 +11,6 @@
 |
 */
 
-Route::get('/', array('before'=>'auth','as' => 'home', function() {
 /*
   $user = new User;
   $user->email = "user";
@@ -21,12 +20,17 @@ Route::get('/', array('before'=>'auth','as' => 'home', function() {
   exit;
   */
 
-  return View::make('home');   
-}));
+Route::group(array('before'=>'auth'), function(){
 
-Route::get('/admin', ['before' => 'auth', function(){ 
-  return  "Welcome to admin area";
-}]);
+  Route::get('/', ['as'=>'home', function(){ return View::make('home'); }]);
+  Route::get('/users', ['as'=>'users', function(){ }]);
+  Route::get('/teste', function(){
+    return "Sleeping Awake";
+  });
+
+});
+
+
 
 
 Route::get('/login', array('as' => 'login', function() {
@@ -46,8 +50,6 @@ Route::post('login', array('before'=>'csrf', function() {
     'password' => Input::get('password')
   );
 
-  
-  
   if (Auth::attempt($user)) {
      return Redirect::route('home')->with('flash_notice', 'You are successfully logged in.');
   }
@@ -64,12 +66,15 @@ Route::get('/logout', array('as'=>'logout', function(){
 }))->before('auth');
 
 
+/*
+
 Route::get('/profile', array('as'=>'profile', function(){ 
    return View::make('profile');
 }))->before('auth');
-
+*/ 
 
 
 
 
 // http://laravelbook.com/laravel-user-authentication/
+//http://four.laravel.com/docs/security#authenticating-users

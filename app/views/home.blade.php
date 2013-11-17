@@ -1,11 +1,6 @@
-@extends('layouts.admin')
-
-@section('sidebar')
-	@parent
-	<p>This is append to the admin sidebar</p>
-
-@stop
+@extends('layouts.dash')
 
 @section('content')
-	<p><b>This is my content</b></p>
+	<h1>Dashboard</h1>
+        <p class="lead">Welcome to my project LARAVEL 4 + Bootstrap 3</p>
 @stop

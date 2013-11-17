@@ -1,30 +1,31 @@
-@extends('layouts.admin')
+@extends('layouts.login')
 
 @section('content')
 
-<h1>Login</h1>
-
 @if (Session::has('flash_error'))
   <div id="flash_error">{{ Session::get('flash_error') }}</div>
-
 @endif
 
 
-{{ Form::open(array('url'=>'login', 'method'=>'post')) }}
+{{ Form::open(array('url'=>'login', 'method'=>'post','class'=>'form-signin')) }}
 
-	<p>
-		{{ Form::label('username', 'Username', array('class'=>'lblFrm')) }}<br/>
-		{{ Form::text('username', Input::old('username')) }}
-	</p>
-
-	<p>
-		{{ Form::label('password', 'Password') }}<br/>
-		{{ Form::password('password') }}
-	</p>
-
+	<h2 class="form-signin-heading text-center">Authentication</h2>
 	
-	<p>{{ Form::submit('Login') }}</p>
+	{{ Form::text('username',null, array('class'=>'form-control','placeholder'=>'Email address')) }}
+	{{ Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password')) }}
+
+    <label class="checkbox">
+		{{ Form::checkbox('rememberme','1') }} Remember me
+    </label>
+
+	{{ Form::submit('Sign in', array('class'=>'btn btn-lg btn-primary btn-block')) }}
 
 {{ Form::close()  }}
 
 @stop
+
+
+
+      
+
+    
