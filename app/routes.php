@@ -23,11 +23,9 @@
 Route::group(array('before'=>'auth'), function(){
 
   Route::get('/', ['as'=>'home', function(){ return View::make('home'); }]);
-  Route::get('/users', ['as'=>'users', function(){ }]);
-  Route::get('/teste', function(){
-    return "Sleeping Awake";
-  });
 
+  Route::get('/users', 'UserController@index');
+  
 });
 
 
@@ -46,7 +44,7 @@ Route::get('/login', array('as' => 'login', function() {
 
 Route::post('login', array('before'=>'csrf', function() {
   $user = array(
-    'email' => Input::get('username'),
+    'username' => Input::get('username'),
     'password' => Input::get('password')
   );
 
