@@ -1,9 +1,6 @@
 @extends('layouts.dash')
 
-
 @section('content')
-
-	
 
 
 <div class="bs-example">

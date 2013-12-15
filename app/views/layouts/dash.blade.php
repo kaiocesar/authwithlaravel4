@@ -38,7 +38,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Administrator Area</a>
+          <a class="navbar-brand" href="/">Administrator Area</a>
         </div>
         <div class="navbar-collapse">
           <ul class="nav navbar-nav">
