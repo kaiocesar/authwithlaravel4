@@ -60,3 +60,6 @@ body {
 .float-right{
   float:right; !important;
 }
+.align-center{
+  text-align: center;
+}

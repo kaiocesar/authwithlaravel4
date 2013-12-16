@@ -34,7 +34,7 @@ Route::group(array('before'=>'auth'), function(){
  */
 Route::get('/login', array('as' => 'login', function() {
   if (Auth::check()):
-    return Redirect::route('dash')->with("flash_notice", "You are successfully logged in.");
+    return Redirect::route(PREFIX_ADM)->with("flash_notice", "You are successfully logged in.");
   endif;
   return View::make(PREFIX_ADM.'.login');
 }))->before('guest');

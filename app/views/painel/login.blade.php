@@ -2,7 +2,8 @@
 
 @section('content')
 
-@if (Session::has('flash_error'))
+
+@if (Session::has('flash_error')===true)
   <div class="alert alert-danger" >{{ Session::get('flash_error') }}</div>
 @endif
 
@@ -21,6 +22,8 @@
 	{{ Form::submit('Sign in', array('class'=>'btn btn-lg btn-primary btn-block')) }}
 
 {{ Form::close()  }}
+
+<div class="center-bloc align-center">Clique <a href="/">aqui</a> para voltar para página inicial.</div>
 
 @stop
 

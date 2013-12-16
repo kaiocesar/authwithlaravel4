@@ -29,7 +29,7 @@
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -38,13 +38,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Administrator Area</a>
+          <a class="navbar-brand" href="/<?php echo PREFIX_ADM; ?>">Administrator Area</a>
         </div>
         <div class="navbar-collapse float-left">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/users">Users</a></li>
-            <li><a href="/posts">Post</a></li>
+            <li class="active"><a href="/<?php echo PREFIX_ADM; ?>/">Home</a></li>
+            <li><a href="/<?php echo PREFIX_ADM; ?>/users">Users</a></li>
+            <li><a href="/<?php echo PREFIX_ADM; ?>/posts">Post</a></li>
           </ul>
         </div><!--/.nav-collapse -->
 
