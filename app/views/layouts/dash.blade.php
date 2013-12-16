@@ -40,14 +40,29 @@
           </button>
           <a class="navbar-brand" href="/">Administrator Area</a>
         </div>
-        <div class="navbar-collapse">
+        <div class="navbar-collapse float-left">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
             <li><a href="/users">Users</a></li>
             <li><a href="/posts">Post</a></li>
           </ul>
         </div><!--/.nav-collapse -->
-        
+
+        <div class="navbar-collapse float-right">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> User <!-- <b class="caret"></b>--> </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 1</a></li>
+                <li class="divider"></li>
+                <li><a href="/logout"><i class="glyphicon glyphicon-off"></i> Sair</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </div>
 

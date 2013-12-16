@@ -50,3 +50,13 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+
+
+
+.float-left{
+  float:left !important;
+}
+.float-right{
+  float:right; !important;
+}

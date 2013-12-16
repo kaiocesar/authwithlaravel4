@@ -3,28 +3,29 @@
 |--------------------------------------------------------------------------
 | Application Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-| @link http://laravelbook.com/laravel-user-authentication/
-| @link http://four.laravel.com/docs/security#authenticating-users
-|
 */
 
 /**
- * Group routes authentication
+ * Rotas padrões do modulo "default"
  */
-Route::group(array('before'=>'auth'), function(){
-
-  Route::get('/', ['as'=>'home', function(){ return View::make('home'); }]);
-
-  Route::get('/users', 'UserController@index');
-
-  Route::get('/posts', 'PostController@index');
-  
+Route::get('/',function(){
+  return View::make('default.home');
 });
+
+
+
+/**
+ * Group routes authentication
+ *  @todo A palavra "painel" é um prefixo para identificar tudo oque for da parte administrativa.
+ */
+define('PREFIX_ADM', 'painel');
+
+Route::group(array('before'=>'auth'), function(){
+  Route::get('/'.PREFIX_ADM, ['as'=>'home', function(){ return View::make(PREFIX_ADM.'.home'); }]);
+  Route::get('/'.PREFIX_ADM.'/users', 'UserController@index');
+  Route::get('/'.PREFIX_ADM.'/posts', 'PostController@index');
+});
+
 
 
 
@@ -35,7 +36,7 @@ Route::get('/login', array('as' => 'login', function() {
   if (Auth::check()):
     return Redirect::route('dash')->with("flash_notice", "You are successfully logged in.");
   endif;
-  return View::make('login');
+  return View::make(PREFIX_ADM.'.login');
 }))->before('guest');
 
 

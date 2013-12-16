@@ -9,7 +9,7 @@ class UserController extends BaseController {
 
 	public function index() {
 		$users = User::where('status','1')->get();
-		return View::make('user.list')->with('users', $users);
+		return View::make('painel.user.list')->with('users', $users);
 	}
 
 }

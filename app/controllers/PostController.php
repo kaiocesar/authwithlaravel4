@@ -9,7 +9,7 @@ class PostController extends BaseController {
 
 		$posts = Post::all();
 
-		return View::make('posts.list')->with('posts', $posts);
+		return View::make('painel.posts.list')->with('posts', $posts);
 
 	}
 
